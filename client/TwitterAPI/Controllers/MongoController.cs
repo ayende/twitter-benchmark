@@ -44,7 +44,7 @@ namespace TwitterAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> User(long id, int page = 0)
+        public async Task<ActionResult> TweetsFor(long id, int page = 0)
         {
             var filter = Builders<TweetModel>.Filter.Eq("user", "users/" + id);
             var results = await _tweets.Find(filter)
