@@ -65,6 +65,23 @@ namespace TwitterAPI.Controllers
                 .Where(t => t.user == user)
                 .OrderByDescending(t => t.created_at)
                 .OfType<tweet>()
+                .Select(x => new
+                {
+                    User = x.user,
+                    CreatedAt = x.created_at,
+                    FavoriteCount = x.favorite_count,
+                    Geo = x.geo,
+                    InReplyToScreenName = x.in_reply_to_screen_name,
+                    Place = x.place,
+                    FullText = x.full_text,
+                    ReplyCount = x.reply_count,
+                    RetrievedUtc = x.retrieved_utc,
+                    Source = x.source,
+                    Language = x.lang,
+                    SupplementalLanguage = x.supplemental_language,
+                    PossiblySensitive = x.possibly_sensitive,
+                    ConversationId = x.conversation_id,
+                })
                 .Skip(page * 15)
                 .Take(15)
                 .ToListAsync();

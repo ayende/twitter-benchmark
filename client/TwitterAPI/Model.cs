@@ -1,4 +1,6 @@
-﻿using Sparrow.Utils;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using Sparrow.Utils;
 using TwitterAPI;
 
 namespace TwitterAPI
@@ -25,6 +27,7 @@ namespace TwitterAPI
     {
         public string display_url { get; set; }
         public Uri expanded_url { get; set; }
+    
         public long id { get; set; }
         public long id_str { get; set; }
         public List<int> indices { get; set; }
@@ -127,7 +130,9 @@ namespace TwitterAPI
         public bool geo_enabled { get; set; }
         public bool has_custom_timelines { get; set; }
         public bool has_extended_profile { get; set; }
+
         public long id { get; set; }
+
         public string id_str { get; set; }
         public bool is_translation_enabled { get; set; }
         public bool is_translator { get; set; }
